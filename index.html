@@ -142,11 +142,18 @@
       }
       function play(){
         if(!e.vid){ alert("이 행에는 영상 링크가 없어요"); return; }
-        if(m.querySelector("iframe")) return;
+        if(m.querySelector("iframe,video")) return;
         playing[key]=1;
         m.style.cursor="default";
-        var f=document.createElement("iframe"); f.src="https://drive.google.com/file/d/"+e.vid+"/preview"; f.allow="autoplay; fullscreen"; f.allowFullscreen=true;
-        m.appendChild(f); var p=m.querySelector(".play"); if(p) p.remove();
+        var p=m.querySelector(".play"); if(p) p.remove();
+        var v=document.createElement("video");
+        v.src="https://drive.usercontent.google.com/download?id="+e.vid+"&export=download";
+        v.controls=true; v.autoplay=true; v.playsInline=true; v.setAttribute("playsinline",""); v.preload="auto";
+        if(img) v.poster=img.src;
+        v.style.cssText="position:absolute;inset:0;width:100%;height:100%;background:#000;object-fit:contain";
+        v.addEventListener("click", function(ev){ ev.stopPropagation(); });
+        v.onerror=function(){ v.remove(); var f=document.createElement("iframe"); f.src="https://drive.google.com/file/d/"+e.vid+"/preview"; f.allow="autoplay; fullscreen"; f.allowFullscreen=true; m.appendChild(f); };
+        m.appendChild(v); var pr=v.play(); if(pr&&pr.catch) pr.catch(function(){});
       }
       m.addEventListener("click", play);
       if(playing[key]) play();
