@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>영상프롬 갤러리</title>
+<meta name="robots" content="noindex,nofollow">
 <meta name="theme-color" content="#0d0e12">
 <link rel="icon" href="data:,">
 <style>
@@ -76,6 +77,28 @@
 </style>
 </head>
 <body>
+<style>
+  #lock{position:fixed;inset:0;z-index:100;background:#0d0e12;display:flex;align-items:center;justify-content:center}
+  #lock form{background:#16181f;border:1px solid #2a2e3a;border-radius:18px;padding:32px 28px;display:flex;flex-direction:column;gap:14px;width:min(360px,90vw);text-align:center}
+  #lock h2{margin:0;font-size:20px} #lock p{margin:0;color:#9097a8;font-size:13px}
+  #lock input{background:#0d0e12;border:1px solid #2a2e3a;color:#e9eaf0;border-radius:10px;padding:12px;font-size:16px;text-align:center;outline:none}
+  #lock input:focus{border-color:#7c8cff} #lock button{background:linear-gradient(90deg,#ff7a59,#7c8cff);border:0;color:#fff;font-weight:700;border-radius:10px;padding:12px;font-size:15px;cursor:pointer}
+  #lock .bad{color:#ff7a7a;font-size:13px;min-height:18px}
+  body.locked > :not(#lock){visibility:hidden}
+</style>
+<div id="lock"><form id="lockForm"><h2>🔒 영상프롬 갤러리</h2><p>비밀번호를 입력하세요</p><input type="password" id="lockPw" autocomplete="current-password" autofocus><button type="submit">열기</button><div class="bad" id="lockBad"></div><label style="font-size:12px;color:#9097a8"><input type="checkbox" id="lockKeep" checked style="vertical-align:middle"> 이 기기에서 기억하기</label></form></div>
+<script>
+(function(){ var H="b06a275c29a167f72e41697e97de062da5874d28961ec4fc76803a569fd1f914", K="vg_unlock";
+  document.body.classList.add("locked");
+  function ok(){ document.body.classList.remove("locked"); var l=document.getElementById("lock"); if(l) l.remove(); }
+  if(localStorage.getItem(K)===H || sessionStorage.getItem(K)===H){ ok(); return; }
+  async function sha(t){ var b=await crypto.subtle.digest("SHA-256", new TextEncoder().encode(t)); return Array.from(new Uint8Array(b)).map(function(x){return x.toString(16).padStart(2,"0")}).join(""); }
+  document.getElementById("lockForm").addEventListener("submit", async function(ev){ ev.preventDefault();
+    var h=await sha("vg-salt-kmuse:"+document.getElementById("lockPw").value);
+    if(h===H){ (document.getElementById("lockKeep").checked?localStorage:sessionStorage).setItem(K,H); ok(); }
+    else { document.getElementById("lockBad").textContent="비밀번호가 맞지 않아요"; document.getElementById("lockPw").select(); } });
+})();
+</script>
 <header><div class="bar">
   <h1>🎬 <span>영상프롬</span> 갤러리</h1>
   <div class="status" id="status">불러오는 중…</div>
