@@ -112,7 +112,7 @@
 </div></header>
 <main id="grid"><div class="skel"></div><div class="skel"></div><div class="skel"></div></main>
 <div id="viewer"><div class="stage" id="vStage"><button class="vbtn" id="vPrev" title="이전 (←)">‹</button><button class="vbtn" id="vNext" title="다음 (→)">›</button><button class="vbtn" id="vSide" title="프롬프트 숨기기/보이기 (P)">☰</button><button class="vbtn" id="vFull" title="전체 화면 (F)">⛶</button><button class="vbtn" id="vClose" title="닫기 (Esc)">✕</button></div><div class="side" id="vInfo"></div></div>
-<footer>구글 시트 '영상프롬'과 자동 연동 · 1분마다 자동 갱신 · 새 영상은 약 15분 안에 페이지 플레이어로 재생 가능</footer>
+<footer>시트(Drive) + 로컬 업로드(videos/) 연동 · 1분마다 자동 갱신 · Drive 새 영상은 약 15분 안에 페이지 플레이어로 전환</footer>
 <script>
 (function(){
   var SHEET_ID = "134ZE8aVQlCcgW9dnMynFGc84a5k1yg0dq-JNgGxYzbs";
@@ -167,15 +167,57 @@
   }
 
 
-  // ---- self-hosted videos (videos/<driveId>.mp4, list in videos/index.json) ----
+  // ---- self-hosted videos (Drive sync: videos/<driveId>.mp4 + index.json; local uploads: videos/local.json) ----
   var hosted = {};
+  var localEntries = [];
   function loadHosted(){
     return fetch("videos/index.json?_="+Date.now(), {cache:"no-store"}).then(function(r){ return r.ok ? r.json() : []; })
       .then(function(a){ var h={}; (a||[]).forEach(function(id){ h[id]=1; }); hosted=h; }).catch(function(){});
   }
-  function isHosted(e){ return !!(e.vid && hosted[e.vid]); }
-  function selfUrl(e){ return "videos/"+encodeURIComponent(e.vid)+".mp4"; }
-  function posterUrl(e, w){ return e.iid ? "https://lh3.googleusercontent.com/d/"+e.iid+"="+(w||"w900") : ""; }
+  function loadLocal(){
+    return fetch("videos/local.json?_="+Date.now(), {cache:"no-store"}).then(function(r){ return r.ok ? r.json() : []; })
+      .then(function(a){
+        localEntries = (a||[]).map(function(x, i){
+          var id = String(x.id||"").trim();
+          if(!id) return null;
+          var video = x.video || ("videos/"+id+".mp4");
+          var poster = x.poster || "";
+          return {
+            row: -(i+1),
+            date: x.date || "",
+            file: (x.title || x.file || id).trim(),
+            len: x.len || x.length || "",
+            res: x.res || x.resolution || "",
+            en: (x.en||"").trim(),
+            ko: (x.ko||"").trim(),
+            vid: id,
+            iid: "",
+            local: true,
+            video: video,
+            poster: poster,
+            ratio: x.ratio || ""
+          };
+        }).filter(Boolean);
+      }).catch(function(){ localEntries = []; });
+  }
+  function isHosted(e){ return !!(e.local || e.video || (e.vid && hosted[e.vid])); }
+  function selfUrl(e){ return e.video || ("videos/"+encodeURIComponent(e.vid)+".mp4"); }
+  function posterUrl(e, w){
+    if(e.poster) return e.poster;
+    return e.iid ? "https://lh3.googleusercontent.com/d/"+e.iid+"="+(w||"w900") : "";
+  }
+  function driveLink(e){ return (!e.local && e.vid) ? ('<a href="https://drive.google.com/file/d/'+e.vid+'/view" target="_blank" rel="noopener">드라이브에서 열기 ↗</a>') : ''; }
+  function mergeEntries(sheetRows){
+    var out = sheetRows.concat(localEntries);
+    out.sort(function(a,b){
+      var d = (b.date||"").localeCompare(a.date||"");
+      if(d!==0) return d;
+      // local (negative row) after same-date sheet rows by title, else sheet row order
+      if(a.local!==b.local) return a.local ? 1 : -1;
+      return a.row - b.row;
+    });
+    return out;
+  }
 
   // only one video plays at a time
   document.addEventListener("play", function(ev){
@@ -191,15 +233,15 @@
     grid.querySelectorAll("video").forEach(function(v){ if(!v.paused) v.pause(); });
     var old=VS.querySelector("video,iframe"); if(old){ if(old.pause) old.pause(); old.remove(); }
     function iframeFallback(){ var f=document.createElement("iframe"); f.src="https://drive.google.com/file/d/"+e.vid+"/preview"; f.allow="autoplay; fullscreen"; f.allowFullscreen=true; VS.insertBefore(f, VS.firstChild); }
-    if(!e.vid){ /* nothing to play */ }
+    if(!e.vid && !e.video){ /* nothing to play */ }
     else if(isHosted(e)){
       var v=document.createElement("video"); v.src=selfUrl(e); v.controls=true; v.autoplay=true; v.playsInline=true; v.setAttribute("playsinline",""); v.preload="auto";
       if(e.iid) v.poster=posterUrl(e,"w1600");
       if(startAt) v.addEventListener("loadedmetadata", function(){ try{ v.currentTime=startAt; }catch(_){} }, {once:true});
-      v.onerror=function(){ v.remove(); iframeFallback(); };
+      v.onerror=function(){ v.remove(); if(!e.local) iframeFallback(); };
       VS.insertBefore(v, VS.firstChild); var pr=v.play(); if(pr&&pr.catch) pr.catch(function(){});
     } else iframeFallback();
-    VI.innerHTML='<div class="title" style="font-size:18px">'+esc(e.file||"")+'</div><div class="meta"><span>📅 '+esc(e.date||"-")+'</span>'+(e.len?'<span>⏱ '+esc(e.len)+'</span>':'')+(e.res?'<span>🎞 '+esc(e.res)+'</span>':'')+(e.vid?'<a href="https://drive.google.com/file/d/'+e.vid+'/view" target="_blank" rel="noopener">드라이브에서 열기 ↗</a>':'')+'<span>'+(i+1)+' / '+vList.length+'</span></div>'+
+    VI.innerHTML='<div class="title" style="font-size:18px">'+esc(e.file||"")+'</div><div class="meta"><span>📅 '+esc(e.date||"-")+'</span>'+(e.len?'<span>⏱ '+esc(e.len)+'</span>':'')+(e.res?'<span>🎞 '+esc(e.res)+'</span>':'')+driveLink(e)+'<span>'+(i+1)+' / '+vList.length+'</span></div>'+
       promptBlock("영어 프롬프트","EN",e.en).replace("<details>","<details open>")+promptBlock("한글 프롬프트","KO",e.ko).replace("<details>","<details open>");
     VI.querySelectorAll("details").forEach(function(d){ var t=d.querySelector(".ptext").textContent; d.querySelector(".copy").addEventListener("click",function(ev){ ev.preventDefault(); ev.stopPropagation(); copyText(t,this); }); });
     V.classList.add("on"); document.body.style.overflow="hidden";
@@ -226,14 +268,15 @@
         '<div class="play"><i></i></div>'+badge+xp+'</div>';
     card.innerHTML = media + '<div class="body"><div class="title">'+esc(e.file||"(파일명 없음)")+'</div>'+
       '<div class="meta"><span>📅 '+esc(e.date||"-")+'</span>'+(e.len?'<span>⏱ '+esc(e.len)+'</span>':'')+(e.res?'<span>🎞 '+esc(e.res)+'</span>':'')+
-      (e.vid?'<a href="https://drive.google.com/file/d/'+e.vid+'/view" target="_blank" rel="noopener">드라이브에서 열기 ↗</a>':'')+'</div>'+
+      driveLink(e)+'</div>'+
       promptBlock("영어 프롬프트","EN",e.en)+promptBlock("한글 프롬프트","KO",e.ko)+'</div>';
     var m = card.querySelector(".media"), img = m.querySelector("img"), vid = m.querySelector("video");
     if(vid){
+      if(e.ratio) m.style.setProperty("--ar", e.ratio);
       vid.addEventListener("loadedmetadata", function(){ if(vid.videoWidth) m.style.setProperty("--ar", vid.videoWidth+"/"+vid.videoHeight); });
       vid.addEventListener("error", function(){ // self-hosted file missing → fall back to image + Drive
         if(card.dataset.fb) return; card.dataset.fb=1; hosted[e.vid]=0; var key=keyOf(e); delete cards[key]; var n=buildCard(e); card.replaceWith(n); cards[key]={el:n, sig:sigOf(e)}; });
-      if(imgUrl){ var pi=new Image(); pi.onerror=function(){ vid.poster="https://drive.google.com/thumbnail?id="+e.iid+"&sz=w900"; }; pi.src=imgUrl; }
+      if(imgUrl && e.iid){ var pi=new Image(); pi.onerror=function(){ vid.poster="https://drive.google.com/thumbnail?id="+e.iid+"&sz=w900"; }; pi.src=imgUrl; }
     }
     if(img){
       img.onload = function(){ if(img.naturalWidth) m.style.setProperty("--ar", img.naturalWidth+"/"+img.naturalHeight); };
@@ -250,8 +293,8 @@
     return card;
   }
   function idxOfKey(k){ for(var i=0;i<currentList.length;i++) if(keyOf(currentList[i])===k) return i; return -1; }
-  function keyOf(e){ return e.row+"|"+e.vid; }
-  function sigOf(e){ return JSON.stringify([e.date,e.file,e.len,e.res,e.en,e.ko,e.vid,e.iid,isHosted(e)]); }
+  function keyOf(e){ return (e.local?"L":"S")+":"+e.vid+"|"+e.row; }
+  function sigOf(e){ return JSON.stringify([e.date,e.file,e.len,e.res,e.en,e.ko,e.vid,e.iid,e.video,e.poster,e.ratio,isHosted(e)]); }
 
   function render(){
     var term = q.value.trim().toLowerCase();
@@ -284,9 +327,11 @@
       if(!resp || resp.status!=="ok"){ statusEl.textContent = "시트를 읽지 못했어요 (공유 설정 확인)"; return; }
       var t = new Date(), stamp = t.getHours().toString().padStart(2,"0")+":"+t.getMinutes().toString().padStart(2,"0");
       var hBefore = JSON.stringify(hosted);
-      loadHosted().then(function(){
+      Promise.all([loadHosted(), loadLocal()]).then(function(){
         var hChanged = JSON.stringify(hosted) !== hBefore;
-        if(resp.sig !== lastSig || manual || hChanged){ lastSig = resp.sig; entries = parse(resp);
+        var next = mergeEntries(parse(resp));
+        var nextSig = resp.sig + "|L" + localEntries.length + "|" + JSON.stringify(localEntries.map(function(x){return x.vid+":"+(x.video||"")+":"+(x.poster||"");}));
+        if(nextSig !== lastSig || manual || hChanged){ lastSig = nextSig; entries = next;
           if(!manual && anyPlaying()) pendingRender = true; else render(); }
         statusEl.textContent = "영상 "+entries.length+"개 · "+stamp+" 갱신";
       });

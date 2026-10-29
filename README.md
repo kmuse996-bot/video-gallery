@@ -5,6 +5,10 @@
 
 > ⚠️ 이 문서에는 비밀번호 값이 들어 있지 않아요. 비밀번호는 사용자 본인만 알고 있어요.
 
+> ⚡ **봇이 박스에서 영상을 바로 올릴 때 (Drive 없이):** [`UPLOAD_GUIDE.md`](./UPLOAD_GUIDE.md)  
+> 한 줄: `/home/box/reference/gallery-video-upload.sh <mp4> <id> "<제목>" "<ratio>" "YYYY-MM-DD" [en] [ko]`  
+> 아래 본문은 예전 Drive+시트 운영 매뉴얼입니다. 두 방식은 함께 동작합니다.
+
 ---
 
 ## ✅ 빠른 시작 체크리스트
