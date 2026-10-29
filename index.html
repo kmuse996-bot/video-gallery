@@ -112,7 +112,7 @@
 </div></header>
 <main id="grid"><div class="skel"></div><div class="skel"></div><div class="skel"></div></main>
 <div id="viewer"><div class="stage" id="vStage"><button class="vbtn" id="vPrev" title="이전 (←)">‹</button><button class="vbtn" id="vNext" title="다음 (→)">›</button><button class="vbtn" id="vSide" title="프롬프트 숨기기/보이기 (P)">☰</button><button class="vbtn" id="vFull" title="전체 화면 (F)">⛶</button><button class="vbtn" id="vClose" title="닫기 (Esc)">✕</button></div><div class="side" id="vInfo"></div></div>
-<footer>시트(Drive) + 로컬 업로드(videos/) 연동 · 1분마다 자동 갱신 · Drive 새 영상은 약 15분 안에 페이지 플레이어로 전환</footer>
+<footer>시트(Drive) + Release/로컬 업로드 연동 · 고화질은 GitHub Release(용량 Pages 밖) · 1분마다 자동 갱신</footer>
 <script>
 (function(){
   var SHEET_ID = "134ZE8aVQlCcgW9dnMynFGc84a5k1yg0dq-JNgGxYzbs";
@@ -180,8 +180,15 @@
         localEntries = (a||[]).map(function(x, i){
           var id = String(x.id||"").trim();
           if(!id) return null;
-          var video = x.video || ("videos/"+id+".mp4");
-          var poster = x.poster || "";
+          var playVia = x.playVia || x.play_via || "";
+          var driveId = x.driveId || x.drive_id || "";
+          var video = x.video || "";
+          if(!video && playVia!=="drive" && playVia!=="release") video = "videos/"+id+".mp4";
+          if(!playVia){
+            if(/^https?:\/\//i.test(video)) playVia = "release";
+            else if(driveId && !video) playVia = "drive";
+            else playVia = "repo";
+          }
           return {
             row: -(i+1),
             date: x.date || "",
@@ -190,23 +197,30 @@
             res: x.res || x.resolution || "",
             en: (x.en||"").trim(),
             ko: (x.ko||"").trim(),
-            vid: id,
+            vid: driveId || id,
             iid: "",
             local: true,
             video: video,
-            poster: poster,
-            ratio: x.ratio || ""
+            poster: x.poster || "",
+            ratio: x.ratio || "",
+            playVia: playVia,
+            driveId: driveId
           };
         }).filter(Boolean);
       }).catch(function(){ localEntries = []; });
   }
-  function isHosted(e){ return !!(e.local || e.video || (e.vid && hosted[e.vid])); }
+  function isHosted(e){ if(e.playVia==="drive") return false; return !!(e.video || (e.vid && hosted[e.vid])); }
   function selfUrl(e){ return e.video || ("videos/"+encodeURIComponent(e.vid)+".mp4"); }
   function posterUrl(e, w){
     if(e.poster) return e.poster;
     return e.iid ? "https://lh3.googleusercontent.com/d/"+e.iid+"="+(w||"w900") : "";
   }
-  function driveLink(e){ return (!e.local && e.vid) ? ('<a href="https://drive.google.com/file/d/'+e.vid+'/view" target="_blank" rel="noopener">드라이브에서 열기 ↗</a>') : ''; }
+  function driveLink(e){
+    if(e.playVia==="drive" && (e.driveId||e.vid)) return '<a href="https://drive.google.com/file/d/'+(e.driveId||e.vid)+'/view" target="_blank" rel="noopener">드라이브에서 열기 ↗</a>';
+    if(e.playVia==="release" && e.video) return '<a href="'+e.video+'" target="_blank" rel="noopener">원본 받기 ↗</a>';
+    if(!e.local && e.vid) return '<a href="https://drive.google.com/file/d/'+e.vid+'/view" target="_blank" rel="noopener">드라이브에서 열기 ↗</a>';
+    return '';
+  }
   function mergeEntries(sheetRows){
     var out = sheetRows.concat(localEntries);
     out.sort(function(a,b){
@@ -233,7 +247,9 @@
     grid.querySelectorAll("video").forEach(function(v){ if(!v.paused) v.pause(); });
     var old=VS.querySelector("video,iframe"); if(old){ if(old.pause) old.pause(); old.remove(); }
     function iframeFallback(){ var f=document.createElement("iframe"); f.src="https://drive.google.com/file/d/"+e.vid+"/preview"; f.allow="autoplay; fullscreen"; f.allowFullscreen=true; VS.insertBefore(f, VS.firstChild); }
-    if(!e.vid && !e.video){ /* nothing to play */ }
+    if(e.playVia==="drive" && (e.driveId||e.vid)){
+      var f=document.createElement("iframe"); f.src="https://drive.google.com/file/d/"+(e.driveId||e.vid)+"/preview"; f.allow="autoplay; fullscreen"; f.allowFullscreen=true; VS.insertBefore(f, VS.firstChild);
+    } else if(!e.vid && !e.video){ /* nothing to play */ }
     else if(isHosted(e)){
       var v=document.createElement("video"); v.src=selfUrl(e); v.controls=true; v.autoplay=true; v.playsInline=true; v.setAttribute("playsinline",""); v.preload="auto";
       if(e.iid) v.poster=posterUrl(e,"w1600");
@@ -259,9 +275,9 @@
   var currentList=[], cards = {}; // key -> {el, sig}
   function buildCard(e){
     var card = document.createElement("article"); card.className="card";
-    var imgUrl = posterUrl(e), self = isHosted(e);
+    var imgUrl = posterUrl(e), self = isHosted(e), canPlay = !!(e.video || e.vid || e.driveId);
     var badge = '<div class="badge">'+(e.len?'<b>'+esc(e.len)+'</b>':'')+(e.res?'<b>'+esc(e.res)+'</b>':'')+'</div>';
-    var xp = e.vid ? '<button class="xp" type="button" title="크게 보기">크게 ⛶</button>' : '';
+    var xp = canPlay ? '<button class="xp" type="button" title="크게 보기">크게 ⛶</button>' : '';
     var media = self
       ? '<div class="media hosted"><video controls preload="metadata" playsinline'+(imgUrl?' poster="'+imgUrl+'"':'')+' src="'+selfUrl(e)+'"></video>'+xp+'</div>'
       : '<div class="media">'+(imgUrl ? '<img loading="lazy" alt="'+esc(e.file)+' 시작 이미지" src="'+imgUrl+'">' : '<div class="noimg">시작 이미지 없음</div>')+
