@@ -141,5 +141,18 @@
     "playVia": "release",
     "video": "https://github.com/kmuse996-bot/video-gallery/releases/download/video-pavilion-sit-beside/pavilion-sit-beside.mp4",
     "poster": "videos/pavilion-sit-beside.jpg"
+  },
+  {
+    "id": "tank-wall-camera-walk",
+    "title": "벽에서 카메라가 돌다",
+    "ratio": "2/3",
+    "date": "2026-11-09",
+    "en": "Camera movement first: a natural cinematic camera walk. The camera slowly arcs around him from a side three-quarter view toward the front, then eases slightly lower into a gentle low angle, never zooming suddenly, never static, never snapping. Smooth steadicam walking, like a photographer circling him.\n\nStart exactly on the first frame. A young Korean man leans against a sunlit beige stucco wall. He has messy layered black hair, a slim black choker, a cream ribbed tank top, and dark charcoal trousers with both the lean of his body and one hand in a pocket. His face is youthful and clean-shaven, looking slightly away with a calm, charismatic expression. Long-legged eight-head model proportions, broad shoulders, slim waist, lean muscular arms with no body hair. Large masculine hands with visible veins.\n\nHe moves naturally from pose to pose without hitching, freezing, or stuttering. From the starting lean he slowly turns his face and torso more toward the camera, slides his other hand into his pocket, and settles into a confident frontal stance matching the middle keyframe. Then he keeps a relaxed posture as the camera walks a little lower; he looks down toward the lens with the same quiet presence, matching the last frame.\n\nSame person and same sunlit beige courtyard corner from start to finish; do not change or beautify his face. No extra facial piercings. Character motion at 2x speed, camera stays slow and smooth. Background stable, does not morph. Exactly one person. Soft outdoor ambient sound, fabric and quiet footsteps of the camera operator, no music.",
+    "ko": "카메라 먼저: 자연스러운 시네마틱 카메라 워킹. 옆 3/4 구도에서 정면으로 천천히 돌아가고, 이어서 살짝 아래로 내려가 로우앵글이 된다. 갑작스런 줌 없이, 멈추지 않고, 끊기지 않게. 사진작가가 그를 천천히 도는 듯한 부드러운 스테디캠.\n\n첫 프레임에서 그대로 시작. 햇살 받는 베이지색 벽면에 기대선 젊은 한국 남성. 레이어드된 검은 머리, 얇은 검은 초커, 크림색 골지 나시, 짙은 차콜 바지. 몸은 벽에 기대고 한쪽 손은 주머니에 넣는다. 얼굴은 젊고 깨끗하게 면도했으며, 살짝 옆을 보는 차분하고 카리스마 있는 표정. 팔다리가 긴 8등신 모델 몸매, 넓은 어깨, 가는 허리, 체모 없는 마른 근육질 팔. 힘줄이 보이는 크고 남성적인 손.\n\n자세가 자연스럽게 이어지고, 끊기거나 멈추거나 걸리지 않는다. 기대어 있던 모습에서 얼굴과 상체를 천천히 카메라 쪽으로 돌리고, 다른 손도 주머니에 넣은 뒤 중간 키프레임처럼 자신감 있는 정면 자세로 선다. 그다음 여유 있는 자세를 유지한 채 카메라가 조금 아래로 걸어 내려가고, 그는 렌즈를 내려다보며 마지막 프레임과 같은 모습이 된다.\n\n처음부터 끝까지 같은 사람, 같은 햇살 받는 베이지색 마당 모서리. 얼굴을 바꾸거나 미화하지 말 것. 얼굴 피어싱을 더하지 말 것. 인물 동작만 2배속, 카메라는 천천히 부드럽게. 배경이 안정적이고 형태가 변하지 않음. 인물은 한 명만. 부드러운 야외 현장음, 옷감 소리와 카메라가 움직이는 작은 발소리. 배경음악 없음.",
+    "len": "8초",
+    "res": "720p",
+    "playVia": "release",
+    "video": "https://github.com/kmuse996-bot/video-gallery/releases/download/video-tank-wall-camera-walk/tank-wall-camera-walk.mp4",
+    "poster": "videos/tank-wall-camera-walk.jpg"
   }
 ]
