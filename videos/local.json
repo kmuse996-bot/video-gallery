@@ -115,5 +115,18 @@
     "playVia": "release",
     "video": "https://github.com/kmuse996-bot/video-gallery/releases/download/video-pavilion-sit-beside-1080p/pavilion-sit-beside-1080p.mp4",
     "poster": "videos/pavilion-sit-beside-1080p.jpg"
+  },
+  {
+    "id": "hanbok-single-tear-stand",
+    "title": "한줄기 눈물을 훔치고 일어나다",
+    "ratio": "2/3",
+    "date": "2026-11-08",
+    "en": "Camera: completely locked off and fixed. No pan, no tilt, no zoom, no tracking, no push-in. The framing stays exactly as the first frame for the whole clip.\n\nStart exactly on the first frame. A young Korean man sits on a wooden floor at the edge of a traditional hanok veranda in the rain, looking back over his shoulder toward the camera. He wears a white linen jeogori, a dark charcoal outer robe draped over his shoulder, and a black horsehair manggeon around a high topknot. His face is youthful and clean-shaven, lips slightly parted, eyes wet and emotional. Large masculine hands with visible veins. Long-legged eight-head model proportions, broad shoulders, slim waist.\n\nHe slowly sheds a single tear. One clear tear forms at the visible eye and rolls slowly down his cheek. He then lifts his hand and gently wipes that tear away. After wiping, he stands up from the seated position, rising naturally while the camera stays fixed.\n\nSame person from start to finish; do not change or beautify his face. No extra facial piercings. Motion is slow and natural, not rushed, not fidgety. Background stable, does not morph. Rain continues falling outside in the courtyard. Exactly one person. Soft ambient sound of rain on wood and stone, fabric as he stands, no music.",
+    "ko": "카메라: 완전히 고정. 팬, 틸트, 줌, 트래킹, 푸시인 없음. 클립 내내 첫 프레임과 같은 구도를 유지한다.\n\n첫 프레임에서 그대로 시작. 비 오는 전통 한옥 마루 가장자리에 젊은 한국 남성이 앉아 어깨 너머로 카메라를 바라본다. 하얀 모시 저고리, 어깨에 걸친 짙은 숯색 겉옷, 상투를 두른 검은 망건. 얼굴은 젊고 깨끗하게 면도했으며, 입술이 살짝 벌어져 있고 눈은 촉촉하고 감정이 어려 있다. 힘줄이 보이는 크고 남성적인 손. 팔다리가 긴 8등신 모델 몸매, 넓은 어깨, 가는 허리.\n\n천천히 한줄기 눈물을 흘린다. 보이는 눈에서 맑은 눈물 한 줄기가 생겨 볼을 따라 천천히 흘러내린다. 그다음 손을 들어 그 눈물을 조용히 훔친다. 훔친 뒤에는 앉아 있던 자리에서 자연스럽게 일어난다. 카메라는 고정된 채로 둔다.\n\n처음부터 끝까지 같은 사람. 얼굴을 바꾸거나 미화하지 말 것. 얼굴 피어싱을 더하지 말 것. 동작은 느리고 자연스럽게, 서두르거나 안절부절하지 말 것. 배경이 안정적이고 형태가 변하지 않음. 마당에는 비가 계속 내린다. 인물은 한 명만. 나무와 돌 위로 떨어지는 빗소리, 일어설 때 옷감 소리. 배경음악 없음.",
+    "len": "8초",
+    "res": "720p",
+    "playVia": "release",
+    "video": "https://github.com/kmuse996-bot/video-gallery/releases/download/video-hanbok-single-tear-stand/hanbok-single-tear-stand.mp4",
+    "poster": "videos/hanbok-single-tear-stand.jpg"
   }
 ]
