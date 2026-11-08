@@ -50,5 +50,18 @@
     "playVia": "release",
     "video": "https://github.com/kmuse996-bot/video-gallery/releases/download/video-study-overlap-library/study-overlap-library.mp4",
     "poster": "videos/study-overlap-library.jpg"
+  },
+  {
+    "id": "street-walk-look-up",
+    "title": "위를 보며 걷다",
+    "ratio": "9/16",
+    "date": "2026-11-08",
+    "en": "A young man walks along a sunlit street looking upward as the camera slowly pulls back to a full-body view, a breeze stirring his hair.",
+    "ko": "햇살 드는 거리를 위를 올려다보며 걷고, 카메라가 천천히 멀어져 전신이 드러난다. 바람에 머리카락이 살랑인다.",
+    "len": "10초",
+    "res": "720p",
+    "playVia": "release",
+    "video": "https://github.com/kmuse996-bot/video-gallery/releases/download/video-street-walk-look-up/street-walk-look-up.mp4",
+    "poster": "videos/street-walk-look-up.jpg"
   }
 ]
