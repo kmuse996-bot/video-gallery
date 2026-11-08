@@ -37,5 +37,18 @@
     "playVia": "release",
     "video": "https://github.com/kmuse996-bot/video-gallery/releases/download/video-studio-wall-kiss/studio-wall-kiss.mp4",
     "poster": "videos/studio-wall-kiss.jpg"
+  },
+  {
+    "id": "study-overlap-library",
+    "title": "공부 장면 오버랩",
+    "ratio": "16/9",
+    "date": "2026-11-08",
+    "en": "Studying scenes dissolve from an old dark library to a bright modern library, then to a sunlit classroom.",
+    "ko": "오래된 도서관에서 책을 집고, 밝은 도서관에서 노트북을 보다가, 강의실에서 필기하는 장면으로 오버랩된다.",
+    "len": "15초",
+    "res": "720p",
+    "playVia": "release",
+    "video": "https://github.com/kmuse996-bot/video-gallery/releases/download/video-study-overlap-library/study-overlap-library.mp4",
+    "poster": "videos/study-overlap-library.jpg"
   }
 ]
