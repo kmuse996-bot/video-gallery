@@ -232,5 +232,18 @@
     "playVia": "release",
     "video": "https://github.com/kmuse996-bot/video-gallery/releases/download/video-tea-pour-highangle-eyelevel/tea-pour-highangle-eyelevel.mp4",
     "poster": "videos/tea-pour-highangle-eyelevel.jpg"
+  },
+  {
+    "id": "doorway-one-step-smirk",
+    "title": "문간에서 한 걸음 나와 비웃다",
+    "ratio": "9/16",
+    "date": "2026-11-09",
+    "en": "Start from <IMAGE_0>. Use <IMAGE_1> only as the face reference; his face matches <IMAGE_1> exactly throughout. <IMAGE_1> does not appear on screen.\n\nScene: A traditional East Asian palace chamber at dusk, carved wooden lattice doors, painted landscape screens, warm lantern light glowing behind him. The doors do not move at all; nobody opens, pushes, or closes them. Background stable, does not morph.\n\nCharacter: A beautiful young adult Korean man, tall with a long-limbed 8-head model body, long black hair half tied with a dark teal ribbon, gold drop earrings, black brocade outer robe over teal and cream hanfu with a dark belt and gold ornaments. Clean-shaven, flawless smooth skin, no facial hair. His hands are large and masculine with long fingers and subtle veins, correctly proportioned.\n\nAction: Standing in the open doorway, his hand lightly lets go of the door frame and he takes just one slow, elegant step forward out of the doorway toward the camera, the long black robe and sleeves swaying softly, hair and teal ribbon moving gently. Only one step, then he stops. He looks down at the camera with a relaxed, slightly mocking smirk: one corner of his lips curls up faintly, eyes calm and half-lidded, amused and arrogant but not angry, not scowling, not frowning. Elegant, unhurried, not fidgety.\n\nCamera: Stays at a dramatic low angle looking up at him the whole time, moving slowly and smoothly with a gentle push-in as he steps forward, keeping him tall and imposing in frame. No sudden zoom, no snap.\n\nSound: ambient only, rustle of heavy silk robes, one soft footstep on wooden floor, faint evening wind. No music.",
+    "ko": "<IMAGE_0>에서 시작. <IMAGE_1>은 얼굴 참조로만 쓰고, 얼굴은 끝까지 <IMAGE_1>과 똑같다. <IMAGE_1>은 화면에 나오지 않는다.\n\n장면: 해 질 녘 동양 궁궐 방. 조각된 나무 격자문, 산수화 병풍, 뒤에서 은은하게 비치는 따뜻한 등불빛. 문은 전혀 움직이지 않고, 아무도 열거나 밀거나 닫지 않는다. 배경은 안정적이고 변형되지 않는다.\n\n인물: 아름다운 젊은 한국 남성. 키가 크고 팔다리가 긴 8등신 모델 몸매. 긴 흑발을 짙은 청록 리본으로 반묶음, 금색 드롭 귀걸이, 검은 비단 겉옷 안에 청록·아이보리 한복풍 옷, 짙은 허리띠와 금장식. 수염 없이 매끈한 피부. 손은 크고 남성적이며 손가락이 길고 힘줄이 은은히 보이되, 몸에 맞는 비율.\n\n동작: 열린 문간에 서 있다가 문틀에서 손을 살며시 떼고, 카메라 쪽으로 천천히 우아하게 딱 한 걸음만 걸어 나온다. 긴 검은 겉옷과 소매가 부드럽게 흔들리고 머리카락과 청록 리본도 살랑인다. 한 걸음 뒤 멈춘다. 카메라를 내려다보며 여유롭게 살짝 비웃는다. 입꼬리 한쪽이 희미하게 올라가고, 눈은 차분하게 반쯤 내리깐 채 재밌다는 듯 오만하지만, 화나거나 인상 쓰거나 찡그리지 않는다. 우아하고 느긋하게, 부산스럽지 않게.\n\n카메라: 처음부터 끝까지 올려다보는 드라마틱한 로우앵글을 유지하고, 그가 걸어 나올 때 천천히 부드럽게 살짝 다가가 크고 위압적인 모습을 담는다. 갑작스런 줌 없이.\n\n사운드: 현장음만. 무거운 비단옷 스치는 소리, 나무 바닥 발소리 한 번, 희미한 저녁 바람. 음악 없음.",
+    "len": "8초",
+    "res": "720p",
+    "playVia": "release",
+    "video": "https://github.com/kmuse996-bot/video-gallery/releases/download/video-doorway-one-step-smirk/doorway-one-step-smirk.mp4",
+    "poster": "videos/doorway-one-step-smirk.jpg"
   }
 ]
