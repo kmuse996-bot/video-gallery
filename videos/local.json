@@ -219,5 +219,18 @@
     "playVia": "release",
     "video": "https://github.com/kmuse996-bot/video-gallery/releases/download/video-bandage-check-grab/bandage-check-grab.mp4",
     "poster": "videos/bandage-check-grab.jpg"
+  },
+  {
+    "id": "tea-pour-highangle-eyelevel",
+    "title": "차를 따르고 눈을 맞추다",
+    "ratio": "9/16",
+    "date": "2026-11-09",
+    "en": "Start from <IMAGE_0>. Use <IMAGE_1> only as the face reference: his face, eyes, brows, lips, and beauty must match <IMAGE_1> exactly throughout and never change or distort. <IMAGE_1> itself does not appear on screen.\n\nScene: An elegant traditional East Asian palace tea room, dark lacquered wood table with gold patterns, celadon teapot and cup, white plum blossoms, painted screens behind. Warm soft candlelight.\n\nCharacter: A beautiful young adult Korean man, long straight black hair half tied with a dark teal ribbon, gold heart drop earrings, black brocade robe over teal and cream layered hanfu. Clean-shaven, flawless smooth skin, no facial hair. His hands are large, masculine, with long fingers and subtle visible veins on the backs, correctly proportioned to his body.\n\nAction: He calmly pours pale green tea from the celadon teapot into the small cup, a thin steady stream, steam rising softly. He finishes pouring, sets the teapot down gently, then slowly lifts his gaze from the cup and looks directly into the camera with a calm, alluring, slightly mysterious expression. Natural graceful motion, not fidgety.\n\nCamera: Starts from the high angle looking down at him, then slowly and smoothly arcs to the left while lowering, ending at his eye level, framing his face and upper body as he looks into the lens. Smooth continuous movement, no sudden zoom, no snap.\n\nBackground stable, does not morph.\n\nSound: ambient only, soft trickle of pouring tea, porcelain clink, faint rustle of silk robes. No music.",
+    "ko": "<IMAGE_0>에서 시작. <IMAGE_1>은 얼굴 참조로만 쓴다. 눈·눈썹·입술과 미모가 끝까지 <IMAGE_1>과 똑같고 변하거나 일그러지지 않는다. <IMAGE_1>은 화면에 나오지 않는다.\n\n장면: 우아한 동양 궁중 다실. 금빛 문양이 있는 짙은 옻칠 나무 탁자, 청자 찻주전자와 찻잔, 하얀 매화, 뒤편엔 그림 병풍. 따뜻하고 은은한 촛불빛.\n\n인물: 아름다운 젊은 한국 남성. 긴 생머리 흑발을 짙은 청록 리본으로 반묶음, 금색 하트 귀걸이, 검은 비단 겉옷 안에 청록·아이보리 겹옷. 수염 없이 매끈한 피부. 손은 크고 남성적이며 손가락이 길고 손등에 힘줄이 은은히 보이되, 몸에 맞는 비율.\n\n동작: 청자 찻주전자로 연둣빛 차를 잔에 가늘고 고르게 따르고, 김이 살며시 오른다. 다 따른 뒤 주전자를 살포시 내려놓고, 잔에서 천천히 시선을 들어 카메라를 똑바로 바라본다. 차분하고 매혹적이며 살짝 신비로운 표정. 자연스럽고 우아하게, 부산스럽지 않게.\n\n카메라: 내려다보는 하이앵글에서 시작해, 왼쪽으로 천천히 부드럽게 돌며 내려와 인물과 같은 눈높이에서 끝난다. 렌즈를 바라보는 얼굴과 상반신을 잡는다. 끊김 없이 부드럽게, 갑작스런 줌 없이.\n\n배경은 안정적이고 변형되지 않는다.\n\n사운드: 현장음만. 차 따르는 졸졸 소리, 도자기 부딪는 소리, 비단 옷깃 스치는 소리. 음악 없음.",
+    "len": "8초",
+    "res": "720p",
+    "playVia": "release",
+    "video": "https://github.com/kmuse996-bot/video-gallery/releases/download/video-tea-pour-highangle-eyelevel/tea-pour-highangle-eyelevel.mp4",
+    "poster": "videos/tea-pour-highangle-eyelevel.jpg"
   }
 ]
