@@ -375,5 +375,18 @@
     "playVia": "release",
     "video": "https://github.com/kmuse996-bot/video-gallery/releases/download/video-snow-prince-camera-orbit/snow-prince-camera-orbit.mp4",
     "poster": "videos/snow-prince-camera-orbit.jpg"
+  },
+  {
+    "id": "mirror-selfie-flash",
+    "title": "노을빛 거울 셀카, 플래시",
+    "ratio": "3/4",
+    "date": "2026-11-09",
+    "en": "Camera: static mirror reflection shot, steady, no zoom, no cuts.\n\nA very handsome young man with messy black hair, an open black shirt, silver chain necklace and grey sweatpants sits on the floor in warm golden-hour sunlight, taking mirror selfies. His left hand holds the phone the whole time and only that same hand operates it: his thumb taps the screen to take each photo. The phone never changes hands and the other hand never touches the phone. With his free right hand he moves naturally between poses: running his fingers through his hair, then lowering the hand to slowly undo a shirt button, then touching his hair again and resting his hand at the back of his neck. He shifts his head and gaze slightly with each pose, cool and model-like. Each time his thumb taps, the phone's flash fires a bright white burst that briefly lights his face and the mirror, then fades; the flash goes off clearly about four times.\n\nNatural, relaxed, cool pose changes. Phone, necklace and clothes stay consistent. Hands and fingers natural, five fingers each. Clean-shaven adult man, no beard, no stubble, no body hair. Background with the flower bouquet stable, does not morph. Ambient sound only: soft phone shutter clicks, fabric rustle, no music.",
+    "ko": "카메라: 거울에 비친 모습을 고정으로 담는다, 흔들림·줌·컷 없음.\n\n헝클어진 흑발에 풀어 헤친 검은 셔츠, 은색 체인 목걸이, 회색 트레이닝 바지를 입은 아주 잘생긴 젊은 남자가 따뜻한 노을빛 속에 바닥에 앉아 거울 셀카를 찍는다.\n왼손은 내내 폰을 들고 있고, 그 손으로만 폰을 조작한다.\n엄지로 화면을 눌러 한 장씩 찍는다.\n폰을 다른 손으로 옮기지 않고, 다른 손은 폰을 만지지 않는다.\n비어 있는 오른손으로 자연스럽게 자세를 바꾼다.\n손가락으로 머리를 쓸어 올린다.\n이어서 손을 내려 셔츠 단추를 천천히 하나 푼다.\n이어서 다시 머리를 만지고, 목 뒤에 손을 얹는다.\n자세마다 고개와 시선을 살짝 바꾸며, 시크하고 모델 같다.\n엄지로 누를 때마다 폰 플래시가 하얗게 번쩍여 얼굴과 거울을 잠깐 비추고 사라진다.\n플래시는 또렷하게 네 번쯤 터진다.\n\n자연스럽고 여유로우며 시크한 자세 전환.\n폰, 목걸이, 옷은 일관되게 유지.\n손과 손가락은 자연스럽게, 각 다섯 손가락.\n깨끗하게 면도한 성인 남성, 수염·체모 없음.\n꽃다발이 있는 배경은 안정적이고 변형되지 않음.\n주변 소리만: 작은 셔터 소리, 옷자락 스치는 소리, 음악 없음.",
+    "len": "6초",
+    "res": "720p",
+    "playVia": "release",
+    "video": "https://github.com/kmuse996-bot/video-gallery/releases/download/video-mirror-selfie-flash/mirror-selfie-flash.mp4",
+    "poster": "videos/mirror-selfie-flash.jpg"
   }
 ]
