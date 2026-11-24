@@ -674,5 +674,18 @@
     "playVia": "release",
     "video": "https://github.com/kmuse996-bot/video-gallery/releases/download/video-library-flashlight-zoomin/library-flashlight-zoomin.mp4",
     "poster": "videos/library-flashlight-zoomin.jpg"
+  },
+  {
+    "id": "crosswalk-business-card",
+    "title": "노을 횡단보도 · 여기로 연락해요",
+    "ratio": "16:9",
+    "date": "2026-11-24",
+    "en": "Cut A: Cinematic Korean film scene, medium close-up of two handsome Korean adult men standing on a wet city crosswalk at golden sunset, warm orange light, glass skyscrapers, wet asphalt reflections. They stay in side profile facing each other and never look at the camera. The taller man on the left in a black suit, vest, white shirt and black tie says in a calm low Korean voice: \"여기로 연락해요.\" while slowly drawing a white business card from his inner jacket. The younger man in a black hoodie with a cream canvas tote listens quietly. Calm elegant real-time motion, camera almost still, faces identical to the first frame, clean-shaven, elegant slender hands. Natural ambient sound only. No background music.\n\nCut B: Cinematic close-up of two hands exchanging a plain white business card at golden sunset: an elegant slender hand from a black suit sleeve with a white cuff holds out the card, a hand in a black hoodie sleeve slowly takes it, then the suit hand withdraws. Camera almost still, natural straight fingers, short natural nails. Natural ambient sound only, faint paper rustle. No background music. No dialogue.\n\nCut C: Medium-wide shot on the sunset crosswalk. The suit man, seen from behind-left with a hand in his pocket, faces the younger man, who holds the business card and a black cat keychain and looks up at him with a soft, slightly shy expression. Very subtle motion, light breeze, camera almost still, faces identical to the first frame. Natural ambient sound only. No background music.",
+    "ko": "컷 A: 노을 지는 젖은 도심 횡단보도를 담은 한국 영화 같은 미디엄 클로즈업이에요. 두 한국인 성인 미남이 옆모습으로 마주 보고 서 있고 카메라는 보지 않아요. 검은 양복의 키 큰 남성이 차분하고 낮은 목소리로 \"여기로 연락해요\"라고 말하며 재킷 안에서 흰 명함을 천천히 꺼내요. 검은 후드티에 크림색 가방을 멘 젊은 남성은 조용히 들어요. 우아한 실제 속도, 카메라는 거의 고정, 얼굴은 첫 장면과 같게, 깔끔한 면도, 우아하고 가느다란 손. 자연스러운 주변 소리만, 배경음악 없음.\n\n컷 B: 노을 속에서 흰 명함을 주고받는 두 손을 가까이 잡은 클로즈업이에요. 양복 소매와 흰 커프스의 가느다란 손이 명함을 내밀고, 후드티 소매의 손이 천천히 받아 간 뒤 양복 손이 거둬져요. 카메라는 거의 고정, 자연스러운 손가락, 짧은 자연 손톱. 자연스러운 주변 소리와 명함 종이 소리만, 배경음악 없음, 대사 없음.\n\n컷 C: 노을 지는 횡단보도의 미디엄와이드 샷이에요. 왼쪽 뒤에서 보이는 양복 남성은 주머니에 손을 넣고 서 있고, 후드티 남성은 명함과 검은 고양이 키링을 든 채 살짝 수줍은 표정으로 그를 올려다봐요. 아주 은은한 움직임과 약한 바람, 카메라는 거의 고정, 얼굴은 첫 장면과 같게. 자연스러운 주변 소리만, 배경음악 없음.",
+    "len": "8초",
+    "res": "720p",
+    "playVia": "release",
+    "video": "https://github.com/kmuse996-bot/video-gallery/releases/download/video-crosswalk-business-card/crosswalk-business-card.mp4",
+    "poster": "videos/crosswalk-business-card.jpg"
   }
 ]
